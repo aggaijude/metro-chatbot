@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metro AI Assistant | Next Gen</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <canvas id="bgCanvas"></canvas>
+
+    <!-- Original gradient overlay for depth -->
+    <div class="background-effects">
+        <div class="glow-overlay"></div>
+    </div>
+
+    <div class="chat-container">
+        <!-- Header -->
+        <div class="chat-header">
+            <div class="header-left">
+                <div class="logo-container">
+                    <img src="logo.png" alt="Metro AI" class="logo-img">
+                </div>
+                <div class="header-text">
+                    <h1>Metro AI</h1>
+                    <div class="status-badge">
+                        <span class="status-dot"></span>
+                        <span class="status-text">Online</span>
+                    </div>
+                </div>
+            </div>
+            <div class="header-actions">
+                <button class="icon-btn" title="Settings"><i class="fas fa-cog"></i></button>
+            </div>
+        </div>
+
+        <!-- Messages Area -->
+        <div class="chat-messages" id="chatBox">
+            <!-- Welcome Message -->
+            <div class="welcome-message">
+                <div class="welcome-logo-container">
+                    <img src="logo.png" alt="Metro AI" class="welcome-logo">
+                </div>
+                <div class="welcome-content">
+                    <h2>Hello, I'm Metro.</h2>
+                    <p>Your advanced AI companion. Ready to assist with creativity, analysis, and conversation.</p>
+                </div>
+            </div>
+
+            <div class="message bot-message">
+                <div class="message-content">Hello! I'm Metro. How can I help you achieve your goals today?</div>
+                <div class="message-meta">Just now</div>
+            </div>
+        </div>
+
+        <!-- Input Area -->
+        <div class="chat-input-container">
+            <div class="input-wrapper">
+                <button class="action-button" title="Upload">
+                    <i class="fas fa-plus"></i>
+                </button>
+                <input type="text" id="userInput" placeholder="Message Metro..." autocomplete="off">
+                <button id="sendButton" title="Send message">
+                    <i class="fas fa-arrow-up"></i>
+                </button>
+            </div>
+            <div class="input-footer">
+                <span>AI can make mistakes. Please verify important information.</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Settings Modal -->
+    <div id="settingsModal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Settings</h3>
+                <button id="closeSettings" class="icon-btn"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="setting-item">
+                    <div class="setting-text">
+                        <span>Theme</span>
+                        <p class="setting-desc">Switch between dark and light mode</p>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox" id="themeToggle">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="background.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
