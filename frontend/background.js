@@ -62,6 +62,8 @@ function initParticles() {
 }
 
 function animate() {
+    if (!window.animationRunning) return;
+
     ctx.clearRect(0, 0, width, height);
 
     // Update and draw particles
@@ -126,4 +128,18 @@ window.addEventListener('themeChanged', () => {
     });
 });
 
+// External control
+window.toggleAnimation = function (shouldAnimate) {
+    if (shouldAnimate) {
+        if (!window.animationRunning) {
+            window.animationRunning = true;
+            animate();
+        }
+    } else {
+        window.animationRunning = false;
+        ctx.clearRect(0, 0, width, height);
+    }
+};
+
+window.animationRunning = true; // Start by default
 animate();

@@ -13,6 +13,16 @@
 </head>
 
 <body>
+    <script>
+        // Prevent flash of wrong theme - MOVED to body to ensure body exists
+        (function () {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'light') {
+                document.documentElement.classList.add('light-theme');
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
 
     <canvas id="bgCanvas"></canvas>
 
@@ -37,7 +47,7 @@
                 </div>
             </div>
             <div class="header-actions">
-                <button class="icon-btn" title="Settings"><i class="fas fa-cog"></i></button>
+                <button id="settingsBtn" class="icon-btn" title="Settings"><i class="fas fa-cog"></i></button>
             </div>
         </div>
 
@@ -94,6 +104,35 @@
                         <input type="checkbox" id="themeToggle">
                         <span class="slider round"></span>
                     </label>
+                </div>
+
+                <div class="setting-item">
+                    <div class="setting-text">
+                        <span>Font Size</span>
+                        <p class="setting-desc">Adjust text size</p>
+                    </div>
+                    <div class="setting-controls">
+                        <button class="size-btn" data-size="small">S</button>
+                        <button class="size-btn active" data-size="medium">M</button>
+                        <button class="size-btn" data-size="large">L</button>
+                    </div>
+                </div>
+
+                <div class="setting-item">
+                    <div class="setting-text">
+                        <span>Reduce Motion</span>
+                        <p class="setting-desc">Disable background animations</p>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox" id="motionToggle">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+
+                <div class="setting-item">
+                    <button id="clearChat" class="danger-btn">
+                        <i class="fas fa-trash-alt"></i> Clear All Chats
+                    </button>
                 </div>
             </div>
         </div>
